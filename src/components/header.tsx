@@ -13,6 +13,7 @@ import { Button } from './ui/button'
 export function Header() {
   const navigation = [
     { name: 'Favorites', href: '/favorites' },
+    { name: 'Movies', href: '/' },
   ]
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -64,7 +65,6 @@ export function Header() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-5">
           <ModeToggle />
-
         </div>
       </nav>
       <Dialog
