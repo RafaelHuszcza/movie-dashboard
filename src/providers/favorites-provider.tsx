@@ -1,5 +1,4 @@
-// FavoritesContext.tsx
-
+'use client'
 import React, {
   createContext,
   ReactNode,
@@ -10,11 +9,10 @@ import React, {
 
 interface Movie {
   imdbID: string
-  Title: string // Título do filme
-  Year: string // Ano de lançamento
-  Poster: string // URL do poster
-  Plot?: string // Resumo do filme (opcional)
-  // Adicione outros campos relevantes que você deseja armazenar
+  Title: string
+  Year: string
+  Poster: string
+  Plot?: string
 }
 
 interface FavoritesContextType {
@@ -32,11 +30,13 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(
 export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>(() => {
-    const storedMovies = localStorage.getItem('favoriteMovies')
-    return storedMovies ? JSON.parse(storedMovies) : []
-  })
-
+  const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([])
+  useEffect(() => {
+    const storedMovies = localStorage?.getItem('favoriteMovies')
+    if (storedMovies) {
+      setFavoriteMovies(JSON.parse(storedMovies))
+    }
+  }, [])
   useEffect(() => {
     localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
   }, [favoriteMovies])

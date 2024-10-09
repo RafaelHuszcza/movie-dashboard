@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Title
 
-## Getting Started
+A brief description of the project, what it does, and its purpose.
 
-First, run the development server:
+## Table of Contents
+
+1. [Cloning the Repository](#cloning-the-repository)
+2. [Building the Project](#building-the-project)
+3. [Running the Project](#running-the-project)
+4. [Running with Docker](#running-with-docker)
+5. [Third-Party Libraries](#third-party-libraries)
+6. [Environment Variables](#environment-variables)
+
+---
+
+## Cloning the Repository
+
+To clone the repository, run the following command:
+
+```bash
+git clone https://github.com/your-username/your-repository.git
+cd your-repository
+```
+
+## Building the Project
+
+Make sure you have Node.js installed. Then, run the following command to install dependencies:
+
+```bash
+npm install
+```
+
+## Running the Project
+
+To run the project locally, use the following command:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application should now be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running with Docker
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If you prefer to run the project in a containerized environment, you can use Docker. The project includes a `Dockerfile` and `docker-compose.yml` to simplify the process.
 
-## Learn More
+### Build the Docker image
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+docker-compose build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Run the containers
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+docker-compose up
+```
 
-## Deploy on Vercel
+The project will be available at `http://localhost:3000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Third-Party Libraries
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### ShadCN UI
+
+- **Reasoning**: ShadCN UI is used to provide a consistent and customizable component library for building user interfaces quickly.
+
+### Other Libraries
+
+- **Next.js**: A React framework used for server-side rendering and static site generation.
+- **Docker & Docker Compose**: Used to run the project in a containerized environment, allowing for easier deployment and scaling.
+
+## Environment Variables
+
+To run the project, ensure you have the following environment variables set in a `.env` file in the root of your project:
+
+```
+NEXT_PUBLIC_API_URL=your_api_url_here
+NEXT_PUBLIC_API_KEY=your_api_key_here
+```
+
+These variables are required for the application to function correctly.
